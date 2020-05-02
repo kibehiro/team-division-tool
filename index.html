@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>チーム分け</title>
+    <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div>
+    チームA
+    <ul id="teamA">
+    </ul>
+</div>
+<div>
+    チームB
+    <ul id="teamB">
+    </ul>
+</div>
+<div>
+    member
+    <div>
+        <form name="member_form">
+            <div>
+                <input type="text" name="0">
+                <select name="0">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="1">
+                <select name="1">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="2">
+                <select name="2">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="3">
+                <select name="3">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="4">
+                <select name="4">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="5">
+                <select name="5">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="6">
+                <select name="6">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="7">
+                <select name="7">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="8">
+                <select name="8">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" name="9">
+                <select name="9">
+                    <option value="1">コッパー</option>
+                    <option value="2">ブロンズ</option>
+                    <option value="3">シルバー</option>
+                    <option value="4">ゴールド</option>
+                    <option value="5">プラチナ</option>
+                    <option value="6">ダイヤ</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <button onclick="random_shuffle();">完全ランダムに振り分ける</button>
+    <button onclick="balance_shuffle();">戦力を均等に振り分ける(β)</button>
+</div>
+</body>
+<script>
+    function initial_list() {
+        let element = document.getElementById('teamA')
+        element.innerHTML = ''
+        element = document.getElementById('teamB')
+        element.innerHTML = ''
+    }
+
+    function get_member() {
+        const member = []
+        const memberForm = document.member_form;
+        const selectTags = memberForm.querySelectorAll("select")
+        for (const i of selectTags) {
+            const memberName = memberForm.querySelector(`input[name="${i.name}"]`).value
+            if (memberName === "") {
+                continue;
+            }
+            member.push({"name": memberName, "rank": i.value})
+        }
+        return member
+    }
+
+    function fisher_yates_shuffle(member) {
+        if (member.length === 1){
+            return member
+        }
+        // fisher-Yates Shuffle
+        for (let i = member.length - 1; i >= 0; i--) {
+            const j = Math.floor(Math.random() * i + 1)
+            const tmp = member[i]
+            member[i] = member[j]
+            member[j] = tmp
+        }
+        return member
+    }
+
+    function random_shuffle() {
+        initial_list()
+        let member = get_member()
+        member = fisher_yates_shuffle(member)
+        for (let i = 0; i < member.length; i++) {
+            if (i < member.length / 2) {
+                document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${member[i].name}</li>`)
+            } else {
+                document.querySelector('#teamB').insertAdjacentHTML('beforeend', `<li>${member[i].name}</li>`)
+            }
+        }
+    }
+
+    function balance_shuffle() {
+        initial_list()
+        // 最初にシャッフルすることで、初心者が多い方に割り当てられる上級者をランダムに
+        let member = fisher_yates_shuffle(get_member())
+        const MAX_NUM = 7
+        const MIN_NUM = 0
+        let teamA = []
+        let teamB = []
+
+        while (member.length !== 0) {
+            let min_rank = member.reduce(function (a, b) {
+                return Math.min(a, b.rank)
+            }, MAX_NUM)
+            let filter_result = member.filter(element => element.rank == min_rank);
+            const shuffle_result = fisher_yates_shuffle(filter_result)
+            for (let i = 0; i < shuffle_result.length; i++) {
+                console.log(shuffle_result)
+                console.log(shuffle_result.length)
+                if (i < shuffle_result.length / 2) {
+                    teamA.push(shuffle_result[i])
+                } else {
+                    teamB.push(shuffle_result[i])
+                }
+            }
+            // 割り当て済みのメンバーを候補から消す
+            member = member.filter(element => element.rank > min_rank);
+
+            // もし初心者が1人多いチームがあったら最強の人をひとり入れる
+            if (shuffle_result.length % 2 !== 0) {
+                const max = member.reduce(function (a, b) {
+                    return Math.max(a, b.rank)
+                }, MIN_NUM)
+                const strongest_member_index = member.findIndex(element => element.rank == max)
+                // プログラムの都合上人数が多くなるのは絶対A
+                teamB.push(member[strongest_member_index])
+                member.splice(strongest_member_index, 1)
+            }
+        }
+        console.log(teamA)
+        console.log(teamB)
+        for (const i of teamA){
+            document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
+        }
+        for (const i of teamB){
+            document.querySelector('#teamB').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
+        }
+    }
+</script>
+</html>
