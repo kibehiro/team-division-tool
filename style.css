@@ -45,6 +45,8 @@ body {
 
 .input-and-button {
     display: flex;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
 }
 
 .button-wrapper {
