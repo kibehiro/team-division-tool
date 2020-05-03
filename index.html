@@ -198,16 +198,28 @@
         return member
     }
 
+    function sort_member(member){
+        member.sort(function (a, b) {
+            return a.rank - b.rank
+        })
+        return member
+    }
+
     function random_shuffle() {
         initial_list()
         let member = get_member()
         member = fisher_yates_shuffle(member)
-        for (let i = 0; i < member.length; i++) {
-            if (i < member.length / 2) {
-                document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${member[i].name}</li>`)
-            } else {
-                document.querySelector('#teamB').insertAdjacentHTML('beforeend', `<li>${member[i].name}</li>`)
-            }
+        let teamA = member.splice(0, member.length / 2)
+        let teamB = member
+
+        teamA = sort_member(teamA)
+        teamB = sort_member(teamB)
+
+        for (const i of teamA) {
+            document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
+        }
+        for (const i of teamB) {
+            document.querySelector('#teamB').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
         }
     }
 
@@ -227,8 +239,6 @@
             let filter_result = member.filter(element => element.rank == min_rank);
             const shuffle_result = fisher_yates_shuffle(filter_result)
             for (let i = 0; i < shuffle_result.length; i++) {
-                console.log(shuffle_result)
-                console.log(shuffle_result.length)
                 if (i < shuffle_result.length / 2) {
                     teamA.push(shuffle_result[i])
                 } else {
@@ -249,6 +259,10 @@
                 member.splice(strongest_member_index, 1)
             }
         }
+
+        teamA = sort_member(teamA)
+        teamB = sort_member(teamB)
+
         for (const i of teamA) {
             document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
         }
