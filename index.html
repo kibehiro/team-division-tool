@@ -237,6 +237,15 @@
                 return Math.min(a, b.rank)
             }, MAX_NUM)
             let filter_result = member.filter(element => element.rank == min_rank);
+            // すでに割り振ったのを削除
+            member = member.filter(element => element.rank > min_rank);
+            if (filter_result.length === 1){
+                teamA.push(filter_result[0])
+                member = sort_member(member)
+                teamB.push(member.shift())
+                continue
+            }
+
             const shuffle_result = fisher_yates_shuffle(filter_result)
             for (let i = 0; i < shuffle_result.length; i++) {
                 if (i < shuffle_result.length / 2) {
@@ -245,23 +254,11 @@
                     teamB.push(shuffle_result[i])
                 }
             }
-            // 割り当て済みのメンバーを候補から消す
-            member = member.filter(element => element.rank > min_rank);
-
-            // もし初心者が1人多いチームがあったら最強の人をひとり入れる
-            if (shuffle_result.length % 2 !== 0) {
-                const max = member.reduce(function (a, b) {
-                    return Math.max(a, b.rank)
-                }, MIN_NUM)
-                const strongest_member_index = member.findIndex(element => element.rank == max)
-                // プログラムの都合上人数が多くなるのは絶対A
-                teamB.push(member[strongest_member_index])
-                member.splice(strongest_member_index, 1)
+            if (teamA.length > teamB.length){
+                member = sort_member(member)
+                teamB.push(member.shift())
             }
         }
-
-        teamA = sort_member(teamA)
-        teamB = sort_member(teamB)
 
         for (const i of teamA) {
             document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
