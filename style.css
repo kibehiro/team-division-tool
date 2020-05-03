@@ -1,0 +1,52 @@
+body {
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+}
+
+.team {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+}
+
+.team div {
+    border-style: solid;
+    border-width: thin;
+    height: 200px;
+}
+
+.team div span {
+    font-size: 1.5em;
+}
+
+.team .teamA {
+    background: linear-gradient(#00aeff, white);
+}
+
+.team ul {
+    text-indent: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.team .teamB {
+    background: linear-gradient(orange, white);
+}
+
+.member span {
+    font-size: 1.25em;
+}
+
+.member-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.input-and-button {
+    display: flex;
+}
+
+.button-wrapper {
+    margin-top: 20px;
+}

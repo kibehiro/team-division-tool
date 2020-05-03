@@ -4,137 +4,162 @@
     <meta charset="UTF-8">
     <title>チーム分け</title>
     <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div>
-    チームA
-    <ul id="teamA">
-    </ul>
+<div class="team">
+    <div class="teamA">
+        <span>チームA</span>
+        <ul id="teamA">
+        </ul>
+    </div>
+    <div class="teamB">
+        <span>チームB</span>
+        <ul id="teamB">
+        </ul>
+    </div>
 </div>
-<div>
-    チームB
-    <ul id="teamB">
-    </ul>
-</div>
-<div>
-    member
+<div class="member">
+    <span>参加者</span>
     <div>
-        <form name="member_form">
-            <div>
-                <input type="text" name="0">
-                <select name="0">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+        <form name="member_form" class="member-form">
+            <div class="input-and-button">
+                <input type="text" name="0" class="input">
+                <div class="select">
+                    <select name="0">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="1">
-                <select name="1">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="1" class="input">
+                <div class="select">
+                    <select name="1">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="2">
-                <select name="2">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="2" class="input">
+                <div class="select">
+                    <select name="2">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="3">
-                <select name="3">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="3" class="input">
+                <div class="select">
+                    <select name="3">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="4">
-                <select name="4">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="4" class="input">
+                <div class="select">
+                    <select name="4">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="5">
-                <select name="5">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="5" class="input">
+                <div class="select">
+                    <select name="5">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="6">
-                <select name="6">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="6" class="input">
+                <div class="select">
+                    <select name="6">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="7">
-                <select name="7">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="7" class="input">
+                <div class="select">
+                    <select name="7">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="8">
-                <select name="8">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="8" class="input">
+                <div class="select">
+                    <select name="8">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <input type="text" name="9">
-                <select name="9">
-                    <option value="1">コッパー</option>
-                    <option value="2">ブロンズ</option>
-                    <option value="3">シルバー</option>
-                    <option value="4">ゴールド</option>
-                    <option value="5">プラチナ</option>
-                    <option value="6">ダイヤ</option>
-                </select>
+            <div class="input-and-button">
+                <input type="text" name="9" class="input">
+                <div class="select">
+                    <select name="9">
+                        <option value="1">コッパー</option>
+                        <option value="2">ブロンズ</option>
+                        <option value="3">シルバー</option>
+                        <option value="4">ゴールド</option>
+                        <option value="5">プラチナ</option>
+                        <option value="6">ダイヤ</option>
+                    </select>
+                </div>
             </div>
         </form>
     </div>
-    <button onclick="random_shuffle();">完全ランダムに振り分ける</button>
-    <button onclick="balance_shuffle();">戦力を均等に振り分ける(β)</button>
+    <div class="button-wrapper">
+        <button onclick="random_shuffle();" class="button">完全ランダムに振り分ける</button>
+        <button onclick="balance_shuffle();" class="button">戦力を均等に振り分ける(β)</button>
+    </div>
 </div>
 </body>
 <script>
@@ -160,7 +185,7 @@
     }
 
     function fisher_yates_shuffle(member) {
-        if (member.length === 1){
+        if (member.length === 1) {
             return member
         }
         // fisher-Yates Shuffle
@@ -226,10 +251,10 @@
         }
         console.log(teamA)
         console.log(teamB)
-        for (const i of teamA){
+        for (const i of teamA) {
             document.querySelector('#teamA').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
         }
-        for (const i of teamB){
+        for (const i of teamB) {
             document.querySelector('#teamB').insertAdjacentHTML('beforeend', `<li>${i.name}</li>`)
         }
     }
